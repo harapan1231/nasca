@@ -1,0 +1,25 @@
+{
+  "name": "nasca",
+  "version": "0.0.1",
+  "description": "An assistant of your final tax income return",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harapan1231/nasca.git"
+  },
+  "keywords": [
+    "final",
+    "tax",
+    "income",
+    "return"
+  ],
+  "author": "harapan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harapan1231/nasca/issues"
+  },
+  "homepage": "https://github.com/harapan1231/nasca#readme"
+}
