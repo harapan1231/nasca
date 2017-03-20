@@ -6,7 +6,7 @@ An assistant of your final tax income return
 ##### npm install
 
 ```
-npm install browserify
+npm install inferno inferno-component
 npm install webpack
-npm install babel babel-plugin-inferno
+npm install babel-loader babel-core babel-plugin-inferno babel-preset-es2015
 ```
