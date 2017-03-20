@@ -1,14 +1,20 @@
 # nasca
 An assistant of your final tax income return
 
-### Requirements
+### run
 
-##### npm preparation
+```
+sh start.sh
+```
+
+### npm preparation
+
+##### npm cleaning
 
 ```
 rm -rf node_modules
 npm cache clean
-sudo npm cache clean
+sudo npm cache clean # if necessary
 npm install
 ```
 
