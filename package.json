@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/harapan1231/nasca/issues"
   },
-  "homepage": "https://github.com/harapan1231/nasca#readme"
+  "homepage": "https://github.com/harapan1231/nasca#readme",
+  "dependencies": {
+    "inferno": "^1.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "inferno-component": "^1.4.0"
+  }
 }
