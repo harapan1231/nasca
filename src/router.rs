@@ -7,6 +7,8 @@ use controller;
 
 pub fn router() -> hyper_router::Router {
   RouterBuilder::new()
-    .add(Route::get("/greet").using(controller::basic_handler))
+    .add(Route::get("/").using(controller::root))
+    .add(Route::get("/static").using(controller::serve_static))
+    .add(Route::get("/greet").using(controller::greet))
     .build()
 }
