@@ -47,10 +47,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Nasca</h1>
-        <div className="container">
+        <div>
           <span>Counter is at: { this.state.counter }</span>
+          <hr />
           {
             this.rows.map((row, i) => {
               return (
