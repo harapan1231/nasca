@@ -3,7 +3,7 @@ module.exports = {
   entry: './client_src/app.jsx',
   /* 出力されるファイルの設定 */
   output: {
-    path: './www/dist', // 出力先のパス
+    path: __dirname + '/www/dist', // 出力先のパス
     filename: 'app.js' // 出力先のファイル名
   },
   /* ソースマップをファイル内に出力させる場合は以下を追加 */

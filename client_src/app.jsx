@@ -23,8 +23,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0
+      counter: 0,
+      inputVal: 0, 
     };
+
     this.rows = [
       {name: "sale",  subject: "k", io: "i", amount: 10000},
       {name: "food",  subject: "l", io: "o", amount: 1000},
@@ -32,12 +34,17 @@ class App extends Component {
       {name: "train", subject: "",  io: "o", amount: 1000},
       {name: "hotel", subject: "k", io: "o", amount: 5000},
     ];
-    this.inputOnChange = function(e) {
-      // TODO
-      console.log(e);
-    };
     this.sum = 0;
+
+    this.inputOnChange = this.inputOnChange.bind(this);
   }
+  inputOnChange(e) {
+    console.log(e);
+    this.setState({
+      inputVal: e.target.value
+    });
+  };
+
   render() {
     return (
       <div>
@@ -51,7 +58,7 @@ class App extends Component {
                   <span className="column">{ row.name }</span>
                   <SubjectDropdown />
                   <span className="column">{ row.io === "i" ? "Income" : "Outcome" }</span>
-                  <input type="text" onChange={ this.inputOnChange } value={ row.amount } />
+                  <input type="text" onInput={ this.inputOnChange } value={ this.state.inputVal } />
                 </div>
               )
             })
