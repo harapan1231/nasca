@@ -41,17 +41,6 @@ fn main() {
                     }
                 }
             };
-
-//  RouterBuilder::new()
-//    .add(Route::get("/").using(controller::root))
-//    .add(Route::get(r"/www/.*\.(html|js|css|ico|png|jpg)$").using(controller::serve_static))
-//    .add(Route::get("/greet").using(controller::greet))
-//    .build()
-//      match router::router().find_handler(&req) {
-//        Ok(handler) => handler(req, res),
-//        Err(StatusCode::NotFound) => res.send(b"not found").unwrap(),
-//        Err(_) => res.send(b"some error").unwrap()
-//      }
     }).unwrap();
 }
 
