@@ -5,5 +5,5 @@ authors = ["harapan"]
 
 [dependencies]
 time = "*"
+regex = "*"
 hyper = "*"
-hyper-router = "*"

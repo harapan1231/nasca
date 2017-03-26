@@ -1,25 +1,57 @@
 extern crate time;
+extern crate regex;
 extern crate hyper;
-extern crate hyper_router;
 
+use regex::Regex;
 use hyper::server::{Server, Request, Response};
-use hyper::status::StatusCode;
+use hyper::uri::RequestUri::AbsolutePath;
 
-mod router;
 mod controller;
 
 fn main() {
-  init();
+    init();
   
-  Server::http("0.0.0.0:8080").unwrap()
-    .handle(move |req: Request, res: Response| {
-      trace(&req);
+    Server::http("0.0.0.0:8080").unwrap()
+        .handle(|req: Request, res: Response| {
+            trace(&req);
+  
+            let path = match req.uri {
+                AbsolutePath(ref path) => {
+                    path.clone()
+                },
+                _ => {
+                    println!("{:#?}", req.uri);
+                    panic!("Missing path");
+                }
+            };
+  
+            match &path[..] {
+                "/" => {
+                    controller::root(req, res)
+                },
+                "/greet" => {
+                    controller::greet(req, res)
+                },
+                _ => {
+                    if Regex::new(r"^/www/.*\.(html|js|css|ico|png|jpg)$").unwrap().is_match(&path[..]) {
+                        controller::serve_static(req, res)
+                    } else {
+                        println!("{}", path);
+                        panic!("Invalid path");
+                    }
+                }
+            };
 
-      match router::router().find_handler(&req) {
-        Ok(handler) => handler(req, res),
-        Err(StatusCode::NotFound) => res.send(b"not found").unwrap(),
-        Err(_) => res.send(b"some error").unwrap()
-      }
+//  RouterBuilder::new()
+//    .add(Route::get("/").using(controller::root))
+//    .add(Route::get(r"/www/.*\.(html|js|css|ico|png|jpg)$").using(controller::serve_static))
+//    .add(Route::get("/greet").using(controller::greet))
+//    .build()
+//      match router::router().find_handler(&req) {
+//        Ok(handler) => handler(req, res),
+//        Err(StatusCode::NotFound) => res.send(b"not found").unwrap(),
+//        Err(_) => res.send(b"some error").unwrap()
+//      }
     }).unwrap();
 }
 
@@ -31,5 +63,5 @@ fn init() {
 }
 
 fn trace(req: &Request) {
-  println!("[{}] accepted = {} :: {}", time::strftime("%H:%M:%S", &time::now()).unwrap(), req.method, req.uri);
+  println!("[{}] {} :: {}", time::strftime("%H:%M:%S", &time::now()).unwrap(), req.method, req.uri);
 }

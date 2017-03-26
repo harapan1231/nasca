@@ -1,5 +1,4 @@
 extern crate hyper;
-extern crate hyper_router;
 
 use std::io::prelude::*;
 use std::io::BufReader;
@@ -19,7 +18,7 @@ pub fn serve_static(req: Request, res: Response) {
     }
     _ => {
       println!("{:#?}", req.uri);
-      panic!();
+      panic!("File not found");
     }
   };
 }
