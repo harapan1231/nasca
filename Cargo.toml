@@ -7,3 +7,6 @@ authors = ["harapan"]
 time = "*"
 regex = "*"
 hyper = "*"
+toml = "*"
+serde = "*"
+serde_derive = "*"
