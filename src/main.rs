@@ -56,7 +56,9 @@ fn main() {
 
 fn init() -> Config {
 
-    let mut file = File::open("nasca.toml").unwrap();
+    const CONFIG_FILE_PATH: &str = "app.config.toml";
+
+    let mut file = File::open(CONFIG_FILE_PATH).unwrap();
     let mut contents = String::new();
     file.read_to_string(&mut contents).unwrap();
     let config: Config = toml::from_str(&contents).unwrap();
