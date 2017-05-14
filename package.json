@@ -11,30 +11,23 @@
     "type": "git",
     "url": "git+https://github.com/harapan1231/nasca.git"
   },
-  "keywords": [
-    "final",
-    "tax",
-    "income",
-    "return"
-  ],
-  "author": "harapan",
+  "author": "harapan1231",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/harapan1231/nasca/issues"
   },
   "homepage": "https://github.com/harapan1231/nasca#readme",
   "dependencies": {
-    "inferno": "^1.4.0"
+    "inferno": "^3.1.2",
+    "inferno-component": "^3.1.2",
+    "inferno-create-element": "^3.1.2",
+    "inferno-router": "^3.1.2"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "css-loader": "^0.27.3",
-    "inferno": "^1.4.0",
-    "inferno-component": "^1.4.0",
-    "style-loader": "^0.14.1",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
-    "webpack": "^2.2.1"
+    "babel": "^6.23.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-inferno": "^3.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "webpack": "^2.5.1"
   }
 }
