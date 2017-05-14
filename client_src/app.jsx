@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import Inferno, { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 
 import { SubjectDropdown } from './components.jsx'
@@ -20,14 +20,12 @@ class App extends Component {
     ];
     this.sum = 0;
 
-    this.inputOnChange = this.inputOnChange.bind(this);
+    this.inputOnChange = function(instance, event) {
+      instance.setState({
+        inputVal: event.target.value
+      });
+    };
   }
-  inputOnChange(e) {
-    console.log(e);
-    this.setState({
-      inputVal: e.target.value
-    });
-  };
 
   render() {
     return (
@@ -43,7 +41,7 @@ class App extends Component {
                   <span className="column">{ row.name }</span>
                   <SubjectDropdown />
                   <span className="column">{ row.io === "i" ? "Income" : "Outcome" }</span>
-                  <input type="text" onInput={ this.inputOnChange } value={ this.state.inputVal } />
+                  <input type="text" onInput={ linkEvent(this, this.inputOnChange) } value={ this.state.inputVal } />
                 </div>
               )
             })
