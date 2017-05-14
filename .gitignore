@@ -10,7 +10,8 @@ Cargo.lock
 /node_modules/
 
 # webpack
-/www/dist/
+/www/
+!/www/index.html
 
 # test
 test/
